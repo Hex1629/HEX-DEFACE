@@ -60,7 +60,7 @@ def test_defacepage(url,mode,command=''):
       raw = requests.get(url+files_name)
       if raw.content.decode() == content_default:
          if mode == 0:
-            test = input(f"{fg(70)}fDOS {fg(71)}OR {fg(72)}DEFACE {fg(73)}?{fg(255)}").upper()
+            test = input(f"{url} {fg(70)}DOS {fg(71)}OR {fg(72)}DEFACE {fg(73)}?{fg(255)}").upper()
             if test == 'DOS':
              countdown = int(input(f"{fg(70)}TIME {fg(71)}?{fg(255)}"))
              thread = int(input(f"{fg(70)}THREAD {fg(71)}?{fg(255)}"))
