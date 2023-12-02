@@ -96,7 +96,7 @@ if mode == 1:
    booter = int(input(f"{fg(70)}BOOTER {fg(71)}?{fg(255)}"))
    command = f'{thread} {countdown} {booter}'
 elif mode == 2:
-   files = int(input(f"{fg(70)}DEFACE PAGE FILE {fg(71)}?{fg(255)}{attr(0)}"))
+   files = input(f"{fg(70)}DEFACE PAGE FILE {fg(71)}?{fg(255)}{attr(0)}")
    command = f'{files} 0'
 
 def reader(a,mode,command):
@@ -121,4 +121,6 @@ except:
      for a in f.readlines():
       th = threading.Thread(target=reader,args=(a.decode(),mode,command))
       th.start(); th.join()
+      if mode == 0 or mode == 1 or mode == 2:
+         time.sleep(1)
    except:print(f'[❌] {fg(226)}NOT FOUND {fg(255)}--> {fg(227)}{files_list}{attr(0)}')
