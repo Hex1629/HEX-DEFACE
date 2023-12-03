@@ -19,12 +19,12 @@ ex = ["txt","exe","md","wav","mp3","gif","xml","moz","mp4","sh","bat","zip","rar
 
 def content_create():
    all = string.ascii_letters + string.digits + string.punctuation + ' กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ'
-   title = generate_string(letter=all, num=random.randint(1,99999)); h1 = generate_string(letter=all,num=random.randint(1,99999)); junk_content = random.randint(1,10); junk = ''
+   title = generate_string(letter=all, num=random.randint(1,9999)); h1 = generate_string(letter=all,num=random.randint(1,9999)); junk_content = random.randint(1,10); junk = ''
    for _ in range(junk_content):
-      junk += generate_string(letter=all,num=random.randint(1,99999))
+      junk += generate_string(letter=all,num=random.randint(1,9999))
       junk += '<br>'
    junk_hex = random.randint(1,10); junk_h = ''
-   for _ in range(junk_hex):junk_h += text_to_hex(generate_string(num=random.randint(1,999999))); junk_h += '<br>'
+   for _ in range(junk_hex):junk_h += text_to_hex(generate_string(num=random.randint(1,9999))); junk_h += '<br>'
    content_create = f'<html><head><title>{title}</title></head><body><h1>{h1}</h1><hr>{junk}{junk_h}FLOODING</body></html>'
    return content_create
 
